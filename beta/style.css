@@ -1,0 +1,11 @@
+.row1,.row2,.row3 {
+    display: flex;
+    white-space: nowrap;
+    height: 300px;
+    background-color: dimgrey;
+}
+
+.column1,.column2,.column3 {
+    width: 300px
+}
+

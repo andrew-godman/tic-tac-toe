@@ -25,3 +25,27 @@
 // * **Commit early, commit often.** Don’t be afraid to break something because you can always go back in time to a previous version.
 // * **Consult documentation resources** (MDN etc.) at home to better understand what you’ll be getting into.
 // * **Don’t be afraid to write code that you know you will have to remove later.** Create temporary elements (buttons, links, etc) that trigger events if real data is not available. For example, if you’re trying to figure out how to change some text when the game is over but you haven’t solved the win/lose game logic, you can create a button to simulate that until then.
+
+// get mouse click of the 9 clicked items
+// display where use as clicked on (or cpu)
+// if 3 in a row display win
+
+var box = document.querySelector('.board')
+
+
+
+box.addEventListener('click', boxClicked)
+
+function boxClicked() {
+    columnClicked = event.target.className;
+    rowClicked = event.target.parentElement.className;
+    
+    console.log(columnClicked, rowClicked);
+     
+    
+}
+
+// event.target
+// <div class=​"column2">​2​</div>​
+// event.target.parentElement
+// <div class=​"row1">​…​</div>​
