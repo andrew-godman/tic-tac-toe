@@ -9,12 +9,14 @@ Done:
 - [x] Include separate HTML / CSS / JavaScript files
 - [x] git repository hosted on GitHub
 - [x] readme.md
+- [x] Switch turns
 
 Todo:
 
-- [ ] Switch turns
+
 - [ ] Deploy your game online
 - [ ] At least one artefact of either pseudocode, flow diagram, wireframe, mockup or storyboard demonstrating planning
+- [ ] Clean up code, check if anyone has won should be in a function for example
 
 
 ### Technical Requirements
