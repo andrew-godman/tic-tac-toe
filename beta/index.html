@@ -1,6 +1,3 @@
-<!-- todo -->
-<!-- add a 3x3 grid -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,33 +9,28 @@
     
 </head>
 <body>
-    <div>
+    <h1>Tic Tac Toe</h1>
+    <div class="menu">
         <div class="Turn"></div>
         <div class="Winner" id="Winner"></div>
         <form>
-            <p>Player 1</p> <input type="text" id="Player1" value="">
-            <p>Player 2</p> <input type="text" id="Player2" value="">
+            <p>Player 1</p> <input required="required" type="text" id="Player1" value="">
+            <p>Player 2</p> <input required="required" type="text" id="Player2" value="">
             <button type="submit" id="submit">Done</button>
         </form>
     </div>
     
     <div class="board">
-            <div class="row1">
-                    <div class="cell1">1</div>
-                    <div class="cell2">2</div>
-                    <div class="cell3">3</div>
-            </div>
-            <div class="row2">
-                    <div class="cell4" class="cell4">1</div>
-                    <div class="cell5" class="cell5">2</div>
-                    <div class="cell6" class="cell6">3</div>
-            </div>
-            <div class="row3">
-                    <div class="cell7" class="cell7">1</div>
-                    <div class="cell8" class="cell8">2</div>
-                    <div class="cell9" class="cell9">3</div>
-            </div>      
-    </div>
+        <div class="box cell1"></div>
+        <div class="box cell2"></div>
+        <div class="box cell3"></div>
+        <div class="box cell4"></div>
+        <div class="box cell5"></div>
+        <div class="box cell6"></div>
+        <div class="box cell7"></div>
+        <div class="box cell8"></div>
+        <div class="box cell9"></div>
+    </div>      
         
     <script src="tictactoe.js"></script>
 </body>

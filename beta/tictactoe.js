@@ -1,72 +1,113 @@
-var box = document.querySelector('.board');
+var boardSelector = document.querySelector('.board');
 var player1 = "";
 var player2 = "";
-var board = new Array(9).fill("");
 var win = "";
-var turn = "";
+var currnetTurn = "";
+var board = new Array(9).fill("");
 var submitButon = document.querySelector("#submit");
 
-box.addEventListener('click', boxClicked);
-
-submitButon.addEventListener('click', funtionSubmiterthing);
-
-function funtionSubmiterthing() {
+function submitUsers(event) {
     event.preventDefault()
     player1 = document.getElementById("Player1").value;
     player2 = document.getElementById("Player2").value;
-    turn = player1;
-    document.querySelector(".Turn").innerText = player1 + "'s" + " turn"
-}
-
-function boxClicked() {
-
-    columnClicked = event.target;
-    columnClicked.style.backgroundColor = "white";
-    columnClicked.textContent = turn;
     
-    // document.querySelector(".Winner").innerHTML = "Player 1"
-    var columnClickedNumber = (columnClicked.className.charAt(4)) -1
-    board.splice(columnClickedNumber, 1, turn,);
-    
-    if  (turn === player1) {
-            turn = player2
+    if (player1 === "" || player2 === "") {
+        
+        return
     }
-    else {
-            turn = player1
+    // submitButon.removeEventListener('click', submitUsers);
+    updateCurrnetTurn()
+}           
+
+function checkWinnerResult(currnetTurn) {
+    if (checkDraw === true) {
+        document.querySelector(".Turn").innerText = "";
+        document.querySelector(".Winner").innerText = "Draw!"
     }
-
-    document.querySelector(".Turn").innerText = turn + "'s" + " turn"
-    
-    if( board[0] === player1 && board[1] === player1 && board[2] === player1 ||
-        board[3] === player1 && board[4] === player1 && board[5] === player1 ||
-        board[6] === player1 && board[7] === player1 && board[8] === player1 ||
-        board[0] === player1 && board[3] === player1 && board[6] === player1 ||
-        board[1] === player1 && board[4] === player1 && board[7] === player1 ||
-        board[2] === player1 && board[5] === player1 && board[8] === player1 ||
-        board[0] === player1 && board[4] === player1 && board[8] === player1 ||
-        board[2] === player1 && board[4] === player1 && board[6] === player1 )
+    if( board[0] === currnetTurn && board[1] === currnetTurn && board[2] === currnetTurn ||
+        board[3] === currnetTurn && board[4] === currnetTurn && board[5] === currnetTurn ||
+        board[6] === currnetTurn && board[7] === currnetTurn && board[8] === currnetTurn ||
+        board[0] === currnetTurn && board[3] === currnetTurn && board[6] === currnetTurn ||
+        board[1] === currnetTurn && board[4] === currnetTurn && board[7] === currnetTurn ||
+        board[2] === currnetTurn && board[5] === currnetTurn && board[8] === currnetTurn ||
+        board[0] === currnetTurn && board[4] === currnetTurn && board[8] === currnetTurn ||
+        board[2] === currnetTurn && board[4] === currnetTurn && board[6] === currnetTurn )
         {
-            var win = player1;
-            document.querySelector(".Turn").innerText = ""
+            win = currnetTurn;
+            document.querySelector(".Turn").innerText = "";
             document.querySelector(".Winner").innerText = win + " Wins!"
-            box.removeEventListener('click', boxClicked);
-
-        }
-    
-    if( board[0] === player2 && board[1] === player2 && board[2] === player2 ||
-        board[3] === player2 && board[4] === player2 && board[5] === player2 ||
-        board[6] === player2 && board[7] === player2 && board[8] === player2 ||
-        board[0] === player2 && board[3] === player2 && board[6] === player2 ||
-        board[1] === player2 && board[4] === player2 && board[7] === player2 ||
-        board[2] === player2 && board[5] === player2 && board[8] === player2 ||
-        board[0] === player2 && board[4] === player2 && board[8] === player2 ||
-        board[2] === player2 && board[4] === player2 && board[6] === player2 )
-        {
-            var win = player2;
-            document.querySelector(".Turn").innerText = ""
-            document.querySelector(".Winner").innerText = win + " Wins!"
-            box.removeEventListener('click', boxClicked);
+            // boardSelector.removeEventListener('click', cellClicked);
+            // newGame()
         }
         
+}
 
+function checkDraw(array) {
+    for(var i=0;i<array;i++){
+        if (array[i] === "")
+        return false
     }
+    return true
+}
+
+function updateCurrnetTurn() {
+
+    if (currnetTurn === "") {
+        currnetTurn = player1
+        document.querySelector(".Turn").innerText = currnetTurn + "'s" + " turn"
+        return
+    }
+
+    if (currnetTurn === player1) {
+        currnetTurn = player2
+        document.querySelector(".Turn").innerText = currnetTurn + "'s" + " turn"
+    }
+
+    else {
+        currnetTurn = player1
+        document.querySelector(".Turn").innerText = currnetTurn + "'s" + " turn"
+    }
+}
+
+function cellClicked(event) {
+    var cellClickedEvent = event.target;
+    var cellClickedNumber = (cellClickedEvent.className.charAt(8)) -1;
+    var boardnumber = board[cellClickedNumber];
+
+    if (cellClickedEvent.classList.contains("box")) {
+        if (boardnumber === "") {            
+                cellClickedEvent.style.backgroundColor = "white";
+                cellClickedEvent.textContent = currnetTurn;
+                
+                board.splice(cellClickedNumber, 1, currnetTurn,);
+                checkWinnerResult(currnetTurn)
+                if (win === "") {
+                    updateCurrnetTurn();
+                }
+        }
+    }
+}
+
+// function newGame() {
+
+//     var newMenuGameDiv = document.createElement("div");
+//     newMenuGameDiv.classList.add("NewGame")
+//     var newContent = document.createTextNode("Do you want to start a new Game");
+//     newMenuGameDiv.appendChild(newContent)
+//     var currentDiv = document.querySelector(".menu")
+//     document.body.insertBefore(newMenuGameDiv, currentDiv);
+
+//     var newMenuGameBtn = document.createElement("button")
+//     var newMenuGameBtnText = document.createTextNode("Yes, start a new game")
+//     var currentDiv = document.querySelector(".NewGame")
+//     document.body.appendChild(newMenuGameBtn, currentDiv)
+
+
+    
+// }
+
+// var newMenuGameDiv = document.createElement("button")
+// var text = document.createTextNode("click me")
+
+submitButon.addEventListener('click', submitUsers);
+boardSelector.addEventListener('click', cellClicked)
