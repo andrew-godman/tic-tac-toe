@@ -1,49 +1,37 @@
-body {
-    background-color: gray
-}
-
-h1 {
-    text-align: center
-}
-
-.board {
-    display: grid;
-    grid-template-columns: 10rem 10rem 10rem;
-    grid-gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
-    height: unset;
-}
-
-div[class*='cell'] {
-    /* width: 150px; */
-    height: 10rem; 
-    border-width: 0.3rem;
-    border-color: lightblue;
-    background-color: wheat;
-    border-style: solid;
-}
-
-form {
-    display: flex;
-    justify-content: center;
-    height: 40px;
-    margin: 10px;
-}
-
-input[type="text"] {
-    width: 130px;
-    display: block;
-    margin: 10px;
-}
-
-button[type="submit"] {
-    margin: 10px;
-    display: block; 
-}
-
-/* .circle:before {
-    content: ' \25CF';
-    font-size: 200px;
-  } */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <h1>Tic Tac Toe</h1>
+    <div class="menu">
+        <div class="Turn"></div>
+        <div class="Winner" id="Winner"></div>
+        <form>
+            <p>Player 1</p> <input required="required" type="text" id="Player1" value="">
+            <p>Player 2</p> <input required="required" type="text" id="Player2" value="">
+            <button type="submit" id="submit">Done</button>
+        </form>
+    </div>
+    
+    <div class="board">
+        <div class="box cell1"></div>
+        <div class="box cell2"></div>
+        <div class="box cell3"></div>
+        <div class="box cell4"></div>
+        <div class="box cell5"></div>
+        <div class="box cell6"></div>
+        <div class="box cell7"></div>
+        <div class="box cell8"></div>
+        <div class="box cell9"></div>
+    </div>      
+        
+    <script src="tictactoe.js"></script>
+</body>
+</html>
