@@ -2,7 +2,7 @@
 
 This is the read me file for my first WDI project!
 
-[Play here] (https://andrew-godman.github.io/tic-tac-toe/)
+[Play here](https://andrew-godman.github.io/tic-tac-toe/)
 
 
 
@@ -20,7 +20,7 @@ Done:
 
 Todo:
 - [ ] New UI design.
-
+- [ ] Update todo list :(
 
 ### Technical Requirements
 
