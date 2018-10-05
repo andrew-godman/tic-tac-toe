@@ -15,12 +15,14 @@ function submitUsers(event) {
         
         return
     }
-    // submitButon.removeEventListener('click', submitUsers);
     updateCurrnetTurn()
 }           
 
 function checkWinnerResult(currnetTurn) {
-    if (checkDraw === true) {
+
+    if (board.includes("") === false) {
+        
+        win = "Draw"
         document.querySelector(".Turn").innerText = "";
         document.querySelector(".Winner").innerText = "Draw!"
     }
@@ -40,14 +42,6 @@ function checkWinnerResult(currnetTurn) {
             // newGame()
         }
         
-}
-
-function checkDraw(array) {
-    for(var i=0;i<array;i++){
-        if (array[i] === "")
-        return false
-    }
-    return true
 }
 
 function updateCurrnetTurn() {
@@ -100,10 +94,7 @@ function cellClicked(event) {
 //     var newMenuGameBtn = document.createElement("button")
 //     var newMenuGameBtnText = document.createTextNode("Yes, start a new game")
 //     var currentDiv = document.querySelector(".NewGame")
-//     document.body.appendChild(newMenuGameBtn, currentDiv)
-
-
-    
+//     document.body.appendChild(newMenuGameBtn, currentDiv) 
 // }
 
 // var newMenuGameDiv = document.createElement("button")
