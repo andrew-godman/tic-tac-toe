@@ -2,6 +2,10 @@
 
 This is the read me file for my first WDI project!
 
+(Play here) (https://andrew-godman.github.io/tic-tac-toe/)
+
+
+
 Done:
 
 - [x] Render a game in the browser
@@ -11,11 +15,12 @@ Done:
 - [x] readme.md
 - [x] Switch turns
 - [x] At least one artefact of either pseudocode, flow diagram, wireframe, mockup or storyboard demonstrating planning
+- [x] Deploy your game online
+- [x] Clean up code, check if anyone has won should be in a function for example
 
 Todo:
+- [ ] New UI design.
 
-- [ ] Deploy your game online
-- [ ] Clean up code, check if anyone has won should be in a function for example
 
 ### Technical Requirements
 
